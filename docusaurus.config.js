@@ -78,7 +78,7 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       // Replace with your project's social card
-      image: 'img/docusaurus-social-card.jpg',
+      image: 'img/logo.png',
       colorMode: {
         respectPrefersColorScheme: true,
       },
@@ -86,7 +86,7 @@ const config = {
         title: 'The Python Ledger',
         logo: {
           alt: 'The python Ledger logo',
-          src: 'img/logo.svg',
+          src: 'img/logo.png',
         },
         items: [
           {
