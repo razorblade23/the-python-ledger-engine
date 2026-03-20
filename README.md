@@ -1,41 +1,69 @@
-# Website
+# 🐍 The Python Ledger Engine
 
-This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
+The technical core of **The Python Ledger**, an interactive, browser-based learning platform. This project combines the static site power of **Docusaurus** with the client-side Python execution of **Skulpt**.
 
-## Installation
+## 🚀 The Tech Stack
 
-```bash
-yarn
-```
+- **Framework:** [Docusaurus v3](https://docusaurus.io/) (React-based SSG)
+- **Engine:** [Skulpt](http://www.skulpt.org/) (In-browser Python 3 execution)
+- **Editor:** [@uiw/react-codemirror](https://uiwjs.github.io/react-codemirror/) (Python syntax highlighting)
+- **Deployment:** CI/CD via GitHub Actions
 
-## Local Development
+## ⚙️ How the Engine Works
 
-```bash
-yarn start
-```
+Unlike standard documentation, this project uses a custom React component, `InteractivePython`, to turn static code blocks into live environments.
 
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
+### The Suspension Logic
+To support interactive `input()` calls without freezing the browser's UI thread or hitting `TimeLimitErrors`, the engine uses a **Promise-based Suspension** architecture:
+1. When Python hits `input()`, Skulpt triggers a custom `inputfun`.
+2. The engine returns a `Promise` and captures the `resolve` function in a React `useRef`.
+3. Skulpt "suspends" execution while the promise is pending.
+4. Once the user submits the HTML form, the promise resolves, and the Python state resumes exactly where it left off.
 
-## Build
+### Configuration
+The engine is tuned with `execLimit: Infinity` for interactive lessons, ensuring students have unlimited time to process logic and provide inputs without the watchdog timer killing the script.
 
-```bash
-yarn build
-```
+This is causing a tab crash on infinite loops, and will be fixed in upcoming fixes. Being tracked on `issues` tab.
 
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
+## 🛠️ Getting Started
 
-## Deployment
+### Prerequisites
+- Node.js (v18 or higher)
+- npm or yarn
 
-Using SSH:
+### Installation
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/razorblade23/the-python-ledger.git
+   cd the-python-ledger
+   ```
 
-```bash
-USE_SSH=true yarn deploy
-```
+2. **Install dependencies:**
+   ```bash
+   npm install
+   ```
 
-Not using SSH:
+3. **Start the development server:**
+   ```bash
+   npm start
+   ```
+   The site will be available at `http://localhost:3000`.
 
-```bash
-GIT_USER=<Your GitHub username> yarn deploy
-```
+## 📂 Project Structure
 
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+- `/src/components/InteractivePython/`: The React logic for the Skulpt engine and terminal UI.
+
+## 🤝 Contributing
+
+We are looking for contributors to help with both **Engine Polish** and **Lesson Content**.
+
+- **Engine:** Improving the terminal UI, adding support for external libraries, or optimizing Skulpt's output handling.
+- **Content:** Drafting new lessons in Markdown and improving existing lessons.
+
+See `CONTRIBUTING.md` for our full guidelines and the Discord community for real-time discussion.
+
+## 📄 License
+This project is licensed under the [MIT License](LICENSE).
+
+## Community
+You can join our community on [Discord](https://discord.gg/d3AG5AbX7H)
