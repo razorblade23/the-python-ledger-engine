@@ -22,7 +22,7 @@ Help us polish the interactive experience.
 
 ## 🚀 How to Get Started
 
-1. **Find an Issue:** Check the [GitHub Issues](link-to-your-issues) for tags like `good first issue` or `help wanted`.
+1. **Find an Issue:** Check the [GitHub Issues](https://github.com/razorblade23/the-python-ledger-engine/issues) for tags like `good first issue` or `help wanted`.
 2. **Fork & Clone:** Fork the repo and clone it locally.
 3. **Install Dependencies:**
    ```bash
@@ -40,7 +40,7 @@ Help us polish the interactive experience.
 
 ### Branching Strategy
 * **main**: The stable production branch. Do not commit directly here.
-* **feature/**: For new lessons or engine features.
+* **feature/**: For new engine features.
 * **fix/**: For bug fixes.
 
 ### Lesson Standards
@@ -48,6 +48,7 @@ If you are writing a new lesson:
 * Start with a clear learning objective.
 * Use the `<InteractivePython>` component at least once per page for hands-on practice.
 * Ensure the code examples are compatible with Python 3 (Skulpt's current implementation).
+* Check out curriculum repository for more information or join us on Discord
 
 ### Code Style
 * We use **Prettier** for formatting. Please run `npm run format` before submitting a PR.
