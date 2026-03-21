@@ -50,7 +50,9 @@ const config = {
           routeBasePath: '/', 
           sidebarPath: require.resolve('./sidebars.js'),
           // This allows students to click "Edit this page" and go to the content repo
-          editUrl: 'https://github.com/razorblade23/the-python-ledger/edit/main/curriculum/',
+          editUrl: ({ docPath }) => {
+             return `https://github.com/razorblade23/the-python-ledger/edit/main/curriculum/${docPath}`;
+           },
         },
         blog: {
           showReadingTime: true,
