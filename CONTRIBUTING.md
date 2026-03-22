@@ -34,6 +34,11 @@ Help us polish the interactive experience.
    ```
 5. **Run Locally:** Use `npm start` to see your changes in real-time.
 
+> [!warning]
+> For working with `engine` you will also need to clone the curriculum repository so they are side by side.
+>
+> Do not mix the repositories, they should be completly independant from each other.
+
 ---
 
 ## 📝 Contribution Guidelines
